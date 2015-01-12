@@ -16,5 +16,9 @@ ratpack {
 		get("run") {
 			render groovyTemplate("run.html", title: "Data Matching")
 		}
+
+        assets "public", "index.html"
     }
+
+
 }
