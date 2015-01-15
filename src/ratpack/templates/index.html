@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script>
+	    function openConfigModal() {
+	    	\$('#idfilesTopOpen').html('file1 <br> file2<br> file3<br>');
+	    	
+	        \$('#modalDukeConfigFiles').modal({
+	      	  keyboard: false
+	      	})    
+	    }
+    </script>
+    
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Duke View</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         <form class="navbar-form navbar-left" role="search">
+            <button type="button" class="btn btn-default" onclick="openConfigModal();">
+            	<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>&nbsp;&nbsp;Open
+            </button>
+            <button type="button" class="btn btn-default">
+            	<span class="glyphicon glyphicon-play" aria-hidden="true"></span>&nbsp;&nbsp;Execute
+           	</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+
+	<!-- Modal Of Config Files -->
+	<div class="modal fade" id="modalDukeConfigFiles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Config Files</h4>
+				</div>
+				
+				<div class="modal-body" id="idfilesTopOpen">...</div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
