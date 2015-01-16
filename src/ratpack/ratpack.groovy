@@ -16,7 +16,7 @@ ratpack {
 	def files = []
 
 	bindings {
-		new File(CONFIG_DIR).eachFile() { file->
+		new File(CONFIG_DIR).listFiles().grep(~/.*xml$/).each { file->
 			files << file.getName()
 		}
 			
