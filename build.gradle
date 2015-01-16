@@ -1,3 +1,7 @@
+apply plugin: "io.ratpack.ratpack-groovy"
+apply plugin: "idea"
+apply plugin: "eclipse"
+
 buildscript {
   repositories {
 	maven { url "http://oss.jfrog.org/artifactory/repo" }
@@ -5,12 +9,10 @@ buildscript {
   }
   dependencies {
     classpath "io.ratpack:ratpack-gradle:0.9.11"
+	
   }
 }
 
-apply plugin: "io.ratpack.ratpack-groovy"
-apply plugin: "idea"
-apply plugin: "eclipse"
 
 repositories {
   jcenter()
@@ -18,6 +20,6 @@ repositories {
 
 dependencies {
   runtime "org.slf4j:slf4j-simple:1.7.5"
-  
+  compile "no.priv.garshol.duke:duke:1.2"
   compile ratpack.dependency("jackson")
 }

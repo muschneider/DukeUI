@@ -12,7 +12,7 @@ import static ratpack.jackson.Jackson.json
 
 ratpack {
 	
-	def CONFIG_DIR = "/home/"
+	def CONFIG_DIR = "/home"
 	def files = []
 
 	bindings {
@@ -36,12 +36,18 @@ ratpack {
 			render json(result)
 		}
 		
+		get("rest/datasource/:config") {
+			def config = pathTokens["config"]
+			
+			def result = run(CONFIG_DIR+"/"+config);
+			render json(result)
+		}
+		
 		get("run") {
 			def dw = new DukeWrapper()
-			
 			render groovyTemplate("run.html", title: dw.execute() )
 		}
-
+		
 		assets "public"
     }
 }
