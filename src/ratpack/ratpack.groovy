@@ -12,8 +12,11 @@ import static ratpack.jackson.Jackson.json
 
 ratpack {
 	
-	def CONFIG_DIR = "/home"
+	def CONFIG_DIR = "/tmp/duke"
 	def files = []
+    def dw = new DukeWrapper()
+
+
 
 	bindings {
 		new File(CONFIG_DIR).listFiles().grep(~/.*xml$/).each { file->
@@ -23,6 +26,9 @@ ratpack {
 		add new JacksonModule()
         add(TemplatingModule) { TemplatingModule.Config config -> config.staticallyCompile = true }
     }
+
+
+
 
     handlers {
 		
@@ -39,15 +45,10 @@ ratpack {
 		get("rest/datasource/:config") {
 			def config = pathTokens["config"]
 			
-			def result = run(CONFIG_DIR+"/"+config);
+			def result = dw.exec(CONFIG_DIR+"/"+config)
 			render json(result)
 		}
-		
-		get("run") {
-			def dw = new DukeWrapper()
-			render groovyTemplate("run.html", title: dw.execute() )
-		}
-		
+
 		assets "public"
     }
 }
