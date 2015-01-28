@@ -12,7 +12,7 @@ import static ratpack.jackson.Jackson.json
 
 ratpack {
 	
-	def CONFIG_DIR = "/tmp/duke"
+	def CONFIG_DIR = "/home/mauro/ws/java/Duke/run"
 	def files = []
     def dw = new DukeWrapper()
 

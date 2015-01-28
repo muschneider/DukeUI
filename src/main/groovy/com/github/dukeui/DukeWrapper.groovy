@@ -26,8 +26,9 @@ class DukeWrapper {
             result.put("header",headerData)
             
 
-            RecordIterator ri = ds.getRecords();
-            while(ri.hasNext()) {
+			int cont = 1;
+            RecordIterator ri = ds.getRecords()
+            while(ri.hasNext() && cont <= 10) {
                 Record record = ri.next();
                 
                 def dataValue = [:]
@@ -35,6 +36,7 @@ class DukeWrapper {
                     dataValue.put(fieldName, record.getValue(fieldName));
                 }
                 records.add(dataValue);
+				cont++;
             }
         }
         catch(Exception e) {
