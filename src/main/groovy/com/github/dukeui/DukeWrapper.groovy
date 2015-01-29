@@ -18,22 +18,25 @@ class DukeWrapper {
 
             DataSource ds = config.getDataSources().iterator().next();
             
-            def headerData = []
+            def headerList = []
             Record header = ds.getRecords().next();
             for(String fieldName:header.getProperties()) {
-                headerData << fieldName
+                def headerData = [:]
+                headerData.put("title",fieldName)
+                headerList.add( headerData )
             }
-            result.put("header",headerData)
+            result.put("header",headerList)
             
 
 			int cont = 1;
             RecordIterator ri = ds.getRecords()
-            while(ri.hasNext() && cont <= 10) {
+            while(ri.hasNext() && cont <= 1000) {
                 Record record = ri.next();
                 
-                def dataValue = [:]
+                def dataValue = []
                 for(String fieldName:record.getProperties()) {
-                    dataValue.put(fieldName, record.getValue(fieldName));
+                    //dataValue.put(fieldName, record.getValue(fieldName));
+                    dataValue << record.getValue(fieldName)
                 }
                 records.add(dataValue);
 				cont++;
@@ -42,7 +45,7 @@ class DukeWrapper {
         catch(Exception e) {
             e.printStackTrace()
         }
-		result.put("records", records);
+		result.put("data", records);
         result
 	}
 	

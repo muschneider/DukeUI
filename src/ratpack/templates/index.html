@@ -8,6 +8,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="dataTable/jquery.dataTables.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,14 +46,8 @@
         <div class="row">
 
             <div id="dataSource" class="col-md-12">
-                <table class="table table-striped">
-                    <thead>
-                      <tr id="dsHeader">
-                      </tr>
-                    </thead>
-                    <tbody id="dsData">
+                <table class="table table-striped" id="dsInput" width="500%">
                 </table>
-
             </div>
 
        </div>
@@ -87,6 +82,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="dataTable/jquery.dataTables.js"></script>
     <script src="app/app.js"></script>
   </body>
 </html>

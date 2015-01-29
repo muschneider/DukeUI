@@ -1,5 +1,3 @@
-
-
 function openConfigFile(fileName) {
 	$('#modalDukeConfigFiles').modal('hide');
     $.ajax({
@@ -8,28 +6,17 @@ function openConfigFile(fileName) {
 		cache: false,
 		dataType: 'json',
 		success: function(data){
-
-            var tHeader = '';
-			$.each(data.header, function(index, element) {
-                tHeader += '<th>'+element+'</th>';
-            });
-            $("#dsHeader").html(tHeader);
-
-            var tData = '';
-			$.each(data.records, function(index, element) {
-                tData += '<tr>';
-                $.each(element, function(fieldName, fieldValue) {
-                    tData += '<td>'+fieldValue+'</td>';
-                });
-                tData += '</tr>';
-            });
-            $("#dsData").html(tData);
+			$('#dsInput').dataTable( {
+				"searching": false,
+				"lengthChange": false,
+				"data": data.data,
+				"columns": data.header
+			});
 
             $("#dataSource").show();
 		}
 
     });
-	console.log(fileName);
 }
 
 

@@ -12,10 +12,9 @@ import static ratpack.jackson.Jackson.json
 
 ratpack {
 	
-	def CONFIG_DIR = "/home/mauro/ws/java/Duke/run"
-	def files = []
+	def CONFIG_DIR = System.getProperty('dukeui.config.dir')
+ 	def files = []
     def dw = new DukeWrapper()
-
 
 
 	bindings {
@@ -26,8 +25,6 @@ ratpack {
 		add new JacksonModule()
         add(TemplatingModule) { TemplatingModule.Config config -> config.staticallyCompile = true }
     }
-
-
 
 
     handlers {
